@@ -4,11 +4,9 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-
 import prisma from '@/app/libs/prismadb';
-import { NextResponse } from 'next/server';
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
@@ -62,10 +60,4 @@ export const authOptions: AuthOptions = {
 
 const handler = NextAuth(authOptions);
 
-export async function GET(req: Request) {
-  return handler(req as any, new NextResponse() as any);
-}
-
-export async function POST(req: Request) {
-  return handler(req as any, new NextResponse() as any);
-}
+export { handler as GET, handler as POST };
