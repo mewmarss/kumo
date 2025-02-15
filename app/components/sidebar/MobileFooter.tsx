@@ -3,12 +3,14 @@
 import useConversation from '@/app/hooks/useConversation';
 import useRoutes from '@/app/hooks/useRoutes';
 import MobileItem from './MobileItem';
+import { usePathname } from 'next/navigation';
 
 const MobileFooter = () => {
   const routes = useRoutes();
   const { isOpen } = useConversation();
+  const pathname = usePathname();
 
-  if (isOpen) {
+  if (isOpen || pathname === '/ai-chat') {
     return null;
   }
 
