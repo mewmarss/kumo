@@ -14,6 +14,8 @@ const MobileFooter = () => {
     return null;
   }
 
+  const mobileRoutes = routes.filter((route) => route.label !== 'Workspace');
+
   return (
     <div
       className="
@@ -29,7 +31,7 @@ const MobileFooter = () => {
         lg:hidden
       "
     >
-      {routes.map((route) => (
+      {mobileRoutes.map((route) => (
         <MobileItem
           key={route.href}
           href={route.href}
