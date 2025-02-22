@@ -5,6 +5,7 @@ import { HiArrowLeftOnRectangle, HiUsers } from 'react-icons/hi2';
 import { RiRobot2Fill } from 'react-icons/ri';
 import { signOut } from 'next-auth/react';
 import useConversation from './useConversation';
+import { MdWorkspaces } from 'react-icons/md';
 
 const useRoutes = () => {
   const pathname = usePathname();
@@ -29,6 +30,12 @@ const useRoutes = () => {
         href: '/ai-chat',
         icon: RiRobot2Fill,
         active: pathname === '/ai-chat',
+      },
+      {
+        label: 'Workspace',
+        href: '/workspace',
+        icon: MdWorkspaces,
+        active: pathname === '/workspace',
       },
       {
         label: 'Logout',
