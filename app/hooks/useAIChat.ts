@@ -80,7 +80,7 @@ export const useAIChat = () => {
       // Get recent context
       const recentMessages = messages.slice(-MAX_CONTEXT_MESSAGES);
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
       const prompt = generatePrompt(content, recentMessages);
 
       const result = await model.generateContent(prompt);
